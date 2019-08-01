@@ -12,10 +12,6 @@ RSpec.describe Password do
     it 'initializes with password' do 
       expect(password_1.text).to eq(word)
     end
-
-    it 'initializes with updated text nil' do 
-      expect(password_1.updated_text).to be(nil)
-    end
   end
 
   describe '#combinations' do 
@@ -25,6 +21,13 @@ RSpec.describe Password do
 
     it 'returns all combinations of two words' do 
       expect(password_2.combinations).to eq(two_word_combs)
+    end
+  end
+
+  describe '#strengthen' do
+    it 'replaces letters with corresponding character' do
+      password_1.strengthen 
+      expect(password_1.updated_text).to eq('@p3')
     end
   end
 end

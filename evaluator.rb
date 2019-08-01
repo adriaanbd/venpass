@@ -1,14 +1,11 @@
 class Evaluator
+
   attr_reader :strength
   attr_accessor :password
 
   def initialize(password)
-    @password = password
+    @password = password.downcase
     @strength = nil
-  end
-
-  def sequence_of_letters
-    @password.scan(/[a-z]+/i)
   end
 
   def replace_word(words)

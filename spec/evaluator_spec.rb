@@ -16,25 +16,6 @@ RSpec.describe Evaluator do
     it 'initializes strength instance attribute' do 
       expect(evaluator.strength).to eq(nil)
     end
-
-  end
-
-  describe '#sequence_of_letters' do 
-    it 'extracts sequence of letters' do 
-      expect(evaluator.sequence_of_letters).to eq([word])
-    end
-
-    it 'identifies two sequences of letters' do 
-      expect(evaluator_2.sequence_of_letters).to eq(['play', 'ground'])
-    end
-  end
-
-  describe '#replace_word' do 
-    it 'replaces two words each with one character' do 
-      words = evaluator_2.sequence_of_letters
-      evaluator_2.replace_word(words)
-      expect(evaluator_2.password).to eq('p31g')
-    end
   end
 
   describe '#character_types' do 
