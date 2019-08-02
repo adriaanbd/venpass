@@ -6,6 +6,7 @@ RSpec.describe Evaluator do
   let(:three_types) { "test 31" }
   let(:four_types) { "test 31*" }
   let(:evaluator) { Evaluator.new }
+  let(:password) { "password" }
 
   describe '#init' do 
     it 'initializes strength instance attribute' do 
@@ -28,6 +29,13 @@ RSpec.describe Evaluator do
 
     it 'identifies four character types' do 
       expect(evaluator.char_types(four_types)).to eq(4)
+    end
+  end
+
+  describe '#calculate_strength' do 
+    it 'returns correct strength for 2 char types' do 
+      pw = password + "1"
+      expect(evaluator.calculate_strength([password], pw)).to eq(4)
     end
   end
 end

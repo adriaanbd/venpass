@@ -1,3 +1,5 @@
+require 'byebug'
+
 class Evaluator
   attr_accessor :strength
 
@@ -6,12 +8,8 @@ class Evaluator
   end
 
   def calculate_strength(words, password)
-    password_to_compare = replace_words(words, password)
-    char_types(password_to_compare) * (password.size - 1)
-  end
-
-  def replace_word(words, password)
     words.each { |word| password.gsub!(word, word[0]) }
+    char_types(password) * (password.size)
   end
 
   def char_types(password)
