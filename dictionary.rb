@@ -8,7 +8,8 @@ class Dictionary
   attr_reader :fname
   attr_accessor :words
 
-  def initialize(fname)
+  def initialize(fname=nil)
+    fname = 'dictionary.json' if fname.nil?
     if File.exist?(fname)
       @words = JSON.load(File.read(fname))
     else 
@@ -17,7 +18,11 @@ class Dictionary
   end
 
   def create_dictionary(source, fname)
-    response = RestClient.get(source)
+    begin
+      response = RestClient.get(source)
+    rescue => exception
+      exception.response
+    end
     @words = JSON.parse(response.body.to_s)
     File.write(fname, JSON.dump(@words))
   end
