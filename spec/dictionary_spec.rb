@@ -1,4 +1,4 @@
-require './dictionary'
+require 'spec_helper'
 
 RSpec.describe Dictionary do
   let(:word) { "playground" }

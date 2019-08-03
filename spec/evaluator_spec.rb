@@ -1,4 +1,5 @@
-require './evaluator'
+require 'spec_helper'
+require 'byebug'
 
 RSpec.describe Evaluator do
   let(:word) { "playground" }

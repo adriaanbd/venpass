@@ -1,4 +1,4 @@
-require './password.rb'
+require 'spec_helper'
 
 RSpec.describe Password do 
   let(:word) { "ape" }
