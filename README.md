@@ -1,6 +1,6 @@
 # Venpass
 
-This program is evaluates a given password's strength.
+This program evaluates a given password's strength.
 
 The requirements were laid out by a Panamanian company in an effort to measure software development skills using Ruby.
 
