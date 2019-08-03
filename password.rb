@@ -11,12 +11,13 @@ class Password
     'a' => '@',
     'o' => '0',
     'b' => '3',
-    'i' => '1',
+    'i' => '!',
     's' => '$',
     'l' => '1',
     'e' => '3',
-    'r' => '2'
-    } 
+    'r' => '2',
+    'g' => '9'
+    }
   end
 
   def combinations(words=nil)
@@ -36,6 +37,14 @@ class Password
     @text.split('').each do |char|
       replacement =  @icebox[char]
       replacement.nil? ? @updated_text << char : @updated_text << replacement
+    end
+  end
+
+  def increase_length
+    if @updated_text.match? /\s/
+      @updated_text << "!"
+    else
+      @updated_text << ' '
     end
   end
 
