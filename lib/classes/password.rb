@@ -41,8 +41,11 @@ class Password
   end
 
   def increase_length
-    if @updated_text.match? /\s/
-      @updated_text << "!"
+    case @updated_text
+    when /\s+\!+/
+      @updated_text << "*"
+    when /\s/
+      @updated_text << '!'
     else
       @updated_text << ' '
     end
