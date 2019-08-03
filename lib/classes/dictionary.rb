@@ -10,6 +10,7 @@ class Dictionary
 
   def initialize(fname=nil)
     fname = 'dictionary.json' if fname.nil?
+    Dir.chdir('..')
     if File.exist?(fname)
       @words = JSON.load(File.read(fname))
     else 
