@@ -1,15 +1,16 @@
 require 'byebug'
 
 class Evaluator
-  attr_accessor :strength
+  attr_accessor :answer
 
   def initialize
-    @strength = nil
+    @answer = nil
   end
 
-  def calculate_strength(words, password)
-    words.each { |word| password.gsub!(word, word[0]) }
-    char_types(password) * (password.size)
+  def calculate_strength(words=nil, password)
+    words.each { |word| password.gsub(word, word[0]) } unless words.nil?
+    @answer = char_types(password) * (password.size)
+    strength(@answer)
   end
 
   def char_types(password)
@@ -28,6 +29,19 @@ class Evaluator
         other += 1 if other.zero?
       end
     end
-    alpha + digit + whitespace + other
+    types = alpha + digit + whitespace + other
+    types
+  end
+
+  private 
+
+  def strength(score)
+    if score >= 50
+      "Strong"
+    elsif score >= 10
+      "Weak"
+    else
+      "Unacceptable"
+    end
   end
 end
