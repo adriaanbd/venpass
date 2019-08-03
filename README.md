@@ -10,6 +10,8 @@ The requirements were laid out by a Panamanian company in an effort to measure s
 $ git clone git@github.com:adriaanbd/venpass.git
 $ cd venpass
 
+$ bundle install
+
 $ ruby main.rb
 ```
 
