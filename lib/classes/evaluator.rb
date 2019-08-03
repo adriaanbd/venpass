@@ -8,8 +8,9 @@ class Evaluator
   end
 
   def calculate_strength(words=nil, password)
-    words.each { |word| password.gsub(word, word[0]) } unless words.nil?
-    @answer = char_types(password) * (password.size)
+    updated_pw = password
+    words.each { |word| updated_pw.gsub!(word, word[0]) } unless words.nil?
+    @answer = char_types(updated_pw) * (updated_pw.size)
     strength(@answer)
   end
 
